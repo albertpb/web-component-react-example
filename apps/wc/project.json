@@ -14,19 +14,19 @@
         "index": "apps/wc/src/index.html",
         "baseHref": "/",
         "main": "apps/wc/src/main.tsx",
-        "polyfills": "apps/wc/src/polyfills.ts",
         "tsConfig": "apps/wc/tsconfig.app.json",
         "assets": ["apps/wc/src/favicon.ico", "apps/wc/src/assets"],
         "styles": ["apps/wc/src/styles.scss"],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "vendorChunk": false,
+        "webpackConfig": "./webpack.config.js"
       },
       "configurations": {
         "development": {
           "extractLicenses": false,
           "optimization": false,
-          "sourceMap": true,
-          "vendorChunk": true
+          "sourceMap": false,
+          "vendorChunk": false
         },
         "production": {
           "fileReplacements": [
@@ -36,7 +36,7 @@
             }
           ],
           "optimization": true,
-          "outputHashing": "all",
+          "outputHashing": "none",
           "sourceMap": false,
           "namedChunks": false,
           "extractLicenses": true,
