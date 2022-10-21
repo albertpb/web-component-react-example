@@ -31,6 +31,10 @@ class ReactWc extends HTMLElement {
     this.render();
   }
 
+  disconnectedCallback() {
+    //
+  }
+
   set counterObj(data) {
     this._counterObj = data;
     this.render();
@@ -43,7 +47,11 @@ class ReactWc extends HTMLElement {
   render() {
     this.reactRoot.render(
       <StrictMode>
-        <App counterObj={this._counterObj} counterAtr={this._counterAtr} />
+        <App
+          wc={this}
+          counterObj={this._counterObj}
+          counterAtr={this._counterAtr}
+        />
       </StrictMode>
     );
   }

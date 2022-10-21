@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react';
 export function App({
   counterObj,
   counterAtr,
+  wc,
 }: {
   counterObj: { value: number };
   counterAtr: number;
+  wc: HTMLElement;
 }) {
   const [c, setC] = useState(0);
 
@@ -14,8 +16,12 @@ export function App({
       setC(c + 1);
     }, 1000);
 
+    wc.dispatchEvent(
+      new CustomEvent('counter-event', { detail: 'hello from web component' })
+    );
+
     return () => clearInterval(interval);
-  }, [c, setC]);
+  }, [c, wc, setC]);
 
   return (
     <div>

@@ -3,8 +3,9 @@ interface HTMLCustom extends HTMLElement {
 }
 
 const wc = document.querySelector('react-wc') as HTMLCustom;
-
-console.log(wc);
+wc.addEventListener('counter-event', (e: CustomEvent) => {
+  console.log('event received ->', e.detail);
+});
 
 let count = 0;
 
